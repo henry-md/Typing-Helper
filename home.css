@@ -1,0 +1,165 @@
+:root {
+    --text_background: #eee;
+    --code_color: #4a4a4a;
+    --code_color_light: #5d5d5d;
+
+    --green_text_1: #95c590;
+    --green_background_1: #EDF7E7;
+    --red_text_1: #d55b60;
+    --red_background_1: #FFDCD9;
+
+    --green_text_2: #88bb88;
+    --green_background_2: #ddeedd;
+    --red_text_2: #dd5566;
+    --red_background_2: #ffdddd;
+
+    --settings_background: #334455;
+}
+
+/* So that it look bearable on different devices,
+even though it wasn't meant for other devices */
+@media only screen and (max-width: 1200px) {
+    .flex { width: 75% !important; }
+}
+
+@media only screen and (max-width: 800px) {
+    .flex { width: 90% !important; }
+}
+
+@media only screen and (max-width: 600px) {
+    .flex { width: 95% !important; }
+}
+
+* { font-size: 23px }
+
+body {
+    /* background-color: #f7f7f7; */
+    /*background-image: url('https://wallpaperaccess.com/full/52448.jpg'); !* Red & Blue Graffiti *!
+    background-image: url('https://www.ge.com/news/sites/default/files/styles/full_header/public/Reports/2020-03/GE-ART-HERO-Rockwell-Kent-mural-1939-Worlds-Fair-Men-and-Volts-cover.jpg?itok=moe70OrN'); !* Fiction Book vibes *!
+    background-image: url('https://www.yogjoshi.com/wp-content/uploads/2016/09/mountainscape-360_6.jpg'); !* Green landscape *!
+    background-image: url('https://www.laphamsquarterly.org/sites/default/files/panorama1854-1855.jpg'); !* Civil War vibes *!*/
+    background-image: url('https://www.roomservice360.com/media/catalog/product/1/8/18064-01-panorama.jpg'); /* Black and white pencil drawing */
+    background-repeat: repeat;
+    background-size: cover;
+    margin: 0; padding: 0;
+}
+
+.code-text {
+    font-family: pt-mono, Courier-new, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+    color: var(--code_color);
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 1px;
+}
+
+.flex {
+    width: 60%;
+    border-radius: 20px;
+    background-color: var(--text_background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px var(--text_background);
+    justify-content: center;
+    margin: 100px auto 0 auto;
+    padding: 10px;
+}
+
+.stats {
+    width: 100%;
+    margin: 0 0 0 30px;
+    text-align: left;
+    font-size: 20px;
+    color: var(--code_color_light);
+    display: block;
+}
+
+.flash-animation {
+    font-size: inherit;
+    animation-name: fade_in_out_quickly;
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    -moz-animation-timing-function: ease-in-out;
+    -o-animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.breakline {
+    width: 90%;
+    justify-self: flex-start;
+    margin: 0 auto 0 20px;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    display: block;
+}
+
+.interactive-container {
+    width: 100%;
+    margin: 30px 10px 20px 10px;
+    text-align: center;
+}
+
+.y {    /* correct */
+    color: var(--green_text_2);
+    background: linear-gradient(to right, var(--text_background) 0%,
+            var(--text_background) 9%, var(--green_background_2) 10%,
+            var(--green_background_2) 90%, var(--text_background) 91%);
+    border-radius: 500px;
+}
+
+.n {    /* incorrect */
+    color: var(--red_text_2);
+    background: linear-gradient(to right, var(--text_background) 0%,
+            var(--text_background) 9%, var(--red_background_2) 10%,
+            var(--red_background_2) 90%, var(--text_background) 91%);
+    border-radius: 500px;
+}
+
+.c {
+    border-bottom: 3px solid rgb(50, 149, 219);
+    animation-name: flash_underline;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+
+/* SETTINGS ICON */
+.stats_page_toggle {
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--settings_background);
+    color: var(--text_background);
+    font-family: Arial, serif;
+    font-size: .6rem;
+    margin: 0;
+    padding: 0 20px 0 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+}
+
+.fa_icon{
+    padding: 0 5px 0 0;
+    color: #fff;
+}
+
+@keyframes flash_underline {
+    0% { border-bottom: 3px solid rgb(50, 149, 219) }
+    50% { border-bottom: 3px solid var(--text_background) }
+    100% { border-bottom: 3px solid rgb(50, 149, 219) }
+}
+
+@keyframes fade_in_out_quickly {
+    0% { color: var(--text_background) }
+    100% { color: var(--code_color) }
+}
